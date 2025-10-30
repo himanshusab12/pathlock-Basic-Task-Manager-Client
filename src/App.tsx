@@ -3,6 +3,7 @@ import { Trash2, Plus, Check, Edit2, Save, X, Cloud, HardDrive } from 'lucide-re
 
 const API_BASE = 'https://pathlock-basic-task-manager-server.onrender.com/api/tasks';
 
+
 interface Task {
   id: string;
   description: string;
