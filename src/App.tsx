@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Trash2, Plus, Check, Edit2, Save, X, Cloud, HardDrive } from 'lucide-react';
 
-const API_BASE = 'http://localhost:5051/api/tasks';
+const API_BASE = 'https://pathlock-basic-task-manager-server.onrender.com/api/tasks';
 
 interface Task {
   id: string;
