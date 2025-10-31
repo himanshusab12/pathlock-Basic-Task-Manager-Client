@@ -175,7 +175,7 @@ Validates TypeScript types throughout the codebase
 
 **Production URL:**
 ```
-https://pathlock-project-1-server.onrender.com/api/tasks
+https://pathlock-basic-task-manager-server.onrender.com/api/tasks
 ```
 
 **Local Development:**
