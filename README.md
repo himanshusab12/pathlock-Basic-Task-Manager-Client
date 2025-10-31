@@ -159,7 +159,7 @@ Creates optimized production bundle in `/build` directory with:
 ```bash
 npm run preview
 ```
-Serves production build locally on port 4173 for testing
+Serves production build locally for testing
 
 ### Type Validation
 ```bash
