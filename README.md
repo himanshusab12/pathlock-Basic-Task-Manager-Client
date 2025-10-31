@@ -1,46 +1,249 @@
-# Getting Started with Create React App
+# Home Assignment 1 – Basic Task Manager - Frontend Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive task management application built with React and TypeScript that seamlessly switches between cloud backend and local storage.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Pages and Components](#pages-and-components)
+- [Setup and Installation](#setup-and-installation)
+- [Running the Application](#running-the-application)
+- [API Integration](#api-integration)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is a full-featured task management application that provides a seamless user experience with automatic fallback to local storage when the backend is unavailable. The application features a dark theme, real-time updates, and intuitive task management capabilities including creating, editing, completing, and deleting tasks.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Live Application**: https://pathlock-project-1-client.vercel.app/
 
-### `npm test`
+**Backend API**: https://pathlock-project-1-server.onrender.com
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+### Core Framework
+- **React 18.2** - UI library with Hooks
+- **TypeScript 5.3** - Type-safe JavaScript
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Routing & State
+- **React Router v6.20** - Client-side routing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Styling
+- **Tailwind CSS 3.4** - Utility-first CSS framework
+- **PostCSS** - CSS processing
+- **Autoprefixer** - CSS vendor prefixing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### HTTP Client
+- **Axios 1.6** - Promise-based HTTP client
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Create, read, update, and delete tasks
+- Mark tasks as completed/incomplete
+- Edit task descriptions inline
+- Filter tasks by status (All, Active, Completed)
+- Task statistics and counters
+- Automatic backend/local storage switching
+- Connection status indicator
+- Offline-first with localStorage fallback
+- Responsive design
+- Loading states and error handling
+- Keyboard shortcuts (Enter to add/save)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
+```
+Root/
+├── src/
+│   ├── App.tsx              # Application Entrypoint + Main TaskManager component
+│   ├── index.css            # Global styles
+├── public/
+├── package.json
+└── README.md
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Pages and Components
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### TaskManager (Main Component)
 
-## Learn More
+The primary component that handles all task management functionality.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Key Elements:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Header Section**
+   - Application title
+   - Connection status indicator (Connected/Offline)
+   - Storage mode toggle (Backend/Local)
+
+2. **Input Section**
+   - Task input field with placeholder
+   - Add button with loading state
+   - Error message display
+
+3. **Filter Section**
+   - Three filter buttons: All, Active, Completed
+   - Task count badges for each filter
+
+4. **Task List**
+   - Individual task items with:
+     - Checkbox for completion toggle
+     - Task description
+     - Edit button (visible on hover)
+     - Delete button (visible on hover)
+   - Inline editing mode with save/cancel actions
+   - Empty state messages
+
+5. **Footer Section**
+   - Remaining tasks counter
+
+**State Management:**
+```typescript
+interface Task {
+  id: string;
+  description: string;
+  isCompleted: boolean;
+}
+
+type FilterType = 'all' | 'active' | 'completed';
+type StorageMode = 'backend' | 'local';
+```
+
+**Key Features:**
+
+- Automatic backend connection detection on mount
+- Bi-directional sync between backend and local storage
+- Optimistic UI updates
+- Error handling with user-friendly messages
+- Hover interactions for edit/delete actions
+
+## Setup and Installation
+
+### Prerequisites
+
+- **Node.js 18+** and npm installed
+- Git for version control
+- Code editor (VS Code recommended)
+
+### Installation Steps
+
+1. **Clone the repository**
+```bash
+   git clone <repository-url>
+   cd <folder-name>
+```
+
+2. **Install dependencies**
+```bash
+   npm install
+```
+
+
+3. **Verify installation**
+```bash
+   npm start
+```
+
+   Should start dev server at `http://localhost:3000`
+
+## Running the Application
+
+### Development Mode
+```bash
+npm start
+```
+
+**Access at**: `http://localhost:3000`
+
+**Features**:
+- Hot module replacement (HMR)
+- Fast refresh for React components
+- Source maps for debugging
+- TypeScript type checking
+
+### Build for Production
+```bash
+npm run build
+```
+
+**Output**: `build/` folder with optimized bundle
+
+**Features**:
+- Minified JavaScript and CSS
+- Tree-shaking for smaller bundle size
+- Asset optimization
+- Production-ready build
+
+### Preview Production Build
+```bash
+npm run preview
+```
+
+**Access at**: `http://localhost:4173`
+
+Tests the production build locally before deployment.
+
+### Type Checking
+```bash
+npx tsc --noEmit
+```
+
+Checks TypeScript types without emitting files.
+
+### Linting (if configured)
+```bash
+npm run lint
+```
+
+## API Integration
+
+### Backend Endpoint
+
+The application integrates with a RESTful API at:
+```
+https://pathlock-project-1-server.onrender.com/api/tasks
+```
+
+For local development, use:
+```
+http://localhost:8080/api/tasks
+```
+
+### API Endpoints Used
+
+```
+| Method | Endpoint           | Description       |
+|--------|--------------------|-------------------|
+| GET    | `/api/tasks`       | Fetch all tasks   |
+| POST   | `/api/tasks`       | Create a new task |
+| PUT    | `/api/tasks/{id}`  | Update a task     |
+| DELETE | `/api/tasks/{id}`  | Delete a task     |
+```
+
+
+### Storage Mode Behavior
+
+**Backend Mode (Cloud Icon Active):**
+- All operations sync with the backend API
+- Tasks persist across devices and sessions
+- Requires internet connection
+
+**Local Mode (Hard Drive Icon Active):**
+- All operations use browser localStorage
+- Tasks persist only on the current device/browser
+- Works offline
+- Automatic fallback when backend is unavailable
+
+### Connection Detection
+
+The app automatically:
+1. Checks backend connectivity on mount
+2. Switches to local storage if backend is unavailable
+3. Displays connection status in the header
+4. Allows manual toggle between modes when backend is available
+
+## Author
+
+**Aaditya Vardhan Vij**
+- GitHub: [@aadityavvij](https://github.com/aadityavvij)
+- Email: aadityavvij@gmail.com
