@@ -232,7 +232,7 @@ The application intelligently:
 
 ## 👨‍💻 Developer
 
-**Aaditya Vardhan Vij**
+**Himanshu Sabharwal**
 
 📧 2003hims@gmail.com  
 🐙 [@himanshusab12](https://github.com/himanshusab12)
