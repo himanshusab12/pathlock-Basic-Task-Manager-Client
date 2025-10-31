@@ -17,9 +17,9 @@ A modern, responsive task management application built with React and TypeScript
 
 This is a full-featured task management application that provides a seamless user experience with automatic fallback to local storage when the backend is unavailable. The application features a dark theme, real-time updates, and intuitive task management capabilities including creating, editing, completing, and deleting tasks.
 
-**Live Application**: https://pathlock-project-1-client.vercel.app/
+**Live Application**: https://pathlock-basic-task-manager-client.vercel.app/
 
-**Backend API**: https://pathlock-project-1-server.onrender.com
+**Backend API**: https://pathlock-basic-task-manager-server.onrender.com
 
 ## Technologies Used
 
